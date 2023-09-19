@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Html Email Template Generator">
+    <meta name="author" content="Matthieu Solente">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="email, generator, html, css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Veeva Token Generator</title>
+  </head>
+  <body class="token-generator">
+    <header>
+      <h1 class="title">Veeva Token generator</h1>
+    </header>
+    <main class="flex-container">
+      <article>
+        <div class="content-wrapper">
+          <h2>Custom text</h2>
+          <p>Add your text in each field to create your custom text. Add lines with the + icon or delete with the - icon. To copy the token, hover over the restitution field and click on the icon</p>
+          <section id="inputs">
+            <div class="flex-row">
+              <label><input class="input" id="custom-text-1" type="text" placeholder="custom text" tabindex="1"></label><button class="remove">-</button>
+            </div>
+            <div class="flex-row">
+              <label><input class="input" id="custom-text-2" type="text" placeholder="custom text 2" tabindex="2"></label><button class="remove">-</button>
+            </div>
+            <button class="add">+</button>
+            <div class="flex-row">
+              <div class="token">{{customText[<span id="custom_wrapper"><span class="output" dataid="custom-text-1"></span><span class="output" dataid="custom-text-2"></span></span>]}}</div>
+            </div>
+          </section>
+          <section id="qty">
+            <h2>Insert Fragment</h2>
+            <p>Add a minimum and a maximum to your fragment token and copy it!</p>
+            <div class="flex-row">
+              <div class="flex-col-sm-6">
+                <label> <input class="fragment-quantity" type="number" name="fragment-min" min="0" max="10" data-product-id="1"></label>
+              </div>
+              <div class="flex-col-sm-6">
+                <label> <input class="fragment-quantity" type="number" name="fragment-max" min="1" max="20" data-product-id="1"></label>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="token">{{insertEmailFragments[<span id="custom_nb_wrapper"><span class="qty-output"></span><span class="qty-output"></span></span>]}}</div>
+            </div>
+          </section>
+          <section id="tokenList">
+            <h2>Veeva Token List</h2>
+            <p>Here is a list of tokens to copy and paste directly. Hover over the field and click on the icon to copy the token.</p>
+            <div class="token">{{customText[Cher Docteur|Chère Docteur|Cher Professeur|Chère Professeur|Madame|Monsieur|Bonjour]}} {{customText[##accFname## ##accLname##,|##accLname##,|##accFname##,|,]}}</div>
+            <div class="token">{{userName}}</div>
+            <div class="token">{{userPhoto}}</div>
+            <div class="token">{{User.MobilePhone}}</div>
+            <div class="token">{{User.SA_Sanofi_User_Email__c }} </div>
+            <div class="token">{{userEmailAddress}}</div>
+            <div class="token">{{unsubscribe_product_link}}</div>
+            <div class="token">{{Call2_vod__c.Call_Datetime_vod__c}}</div>
+            <div class="token">{{Call2_vod__c.Cobrowse_URL_Participant_vod__c}}</div>
+            <div class="token">{{addToCalendar}}</div>
+            <div class="token">{{Call2_vod__c.Remote_Meeting_vod__r.Meeting_Password_vod__c}}</div>
+            <div class="token">{{EM_Event_vod__c.Name_vod__c}} </div>
+            <div class="token">{{EM_Event_vod__c.Name}}</div>
+            <div class="token">{{EM_Event_vod__c.SA_Start_Date__c}}</div>
+            <div class="token">{{EM_Event_vod__c.Start_Time_vod__c}}</div>
+            <div class="token">{{EM_Event_vod__c.City_vod__c}}</div>
+            <div class="token">{{emailTemplateFragment}}</div>
+            <div class="token">{{accFname}}</div>
+            <div class="token">{{accLname}}</div>
+            <div class="token">{{addToCalendar}}</div>
+            <div class="token">{{PieceLink}}</div>
+            <div class="token">{{surveyLink}}</div>
+            <div class="token">{{$DocumentID}}</div>
+            <div class="token">{{approvedEmailAction[,FR_001]}}</div>
+          </section>
+          <section id="tokenList">
+            <h2>Salesforce Token List</h2>
+            <p>Mirror link : </p>
+            <div class="token">%%view_email_url%%</div>
+            <p>Unsubscribe link : </p>
+            <div class="token">%%=RedirectTo(@UnsubscribeUrl)=%%</div>
+            <p>Tracking</p>
+            <div class="token">
+              <pre><code>&lt;custom name="opencounter" type="tracking"/&gt;</pre></code>
+            </div>
+            <p>Link to survey</p>
+            <div class="token">%%=RedirectTo(@surveyUrl)=%%</div>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer>
+      &reg;copyright
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
