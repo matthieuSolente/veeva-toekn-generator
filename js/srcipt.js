@@ -9,6 +9,7 @@ $(function() {
   var v = (i == 0) ? $(this).val() : "|" + $(this).val();
   $("#custom_wrapper .output").eq(i).html(v);
 });
+  
 
 $('.add').click(function() {
   var count = $("#inputs input").length;
@@ -45,10 +46,17 @@ $('.fragment-quantity').on('change', function () {
   var y = (q == 0) ? $(this).val() : "," + $(this).val();
   $("#custom_nb_wrapper .qty-output").eq(q).html(y);
 });
+});
 
-  /***********************************************/
+
+/***********************************************/
 /* COPY TO CLIPBOARD FUNCTION */
 /***********************************************/
+
+$('.token').wrap('<div class="token-block"></div>');   
+  $('.token-block').each(function(){     
+      $(this).append('<button type="button" class="copy" onclick="copy(this)" aria-hidden="false" aria-label="Copy to clipboard"><span class="visually-hidden">Copy to Clipboard</span></button>');
+  }); 
 function copy(element) {
 var $temp = $("<textarea>");
     $("body").append($temp);
@@ -57,4 +65,3 @@ var $temp = $("<textarea>");
     $temp.remove();
 }
 
-})
