@@ -65,3 +65,7 @@ var $temp = $("<textarea>");
     $temp.remove();
 }
 
+$(function () {
+ thisyear = new Date().getFullYear();
+ $('#year').text(thisyear);
+});
